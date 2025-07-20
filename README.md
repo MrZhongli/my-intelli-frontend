@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+---
 
-First, run the development server:
+## 📚 My Intelli Frontend App – Prueba Técnica (Next.js + TypeScript)
+
+Este proyecto es una aplicación de gestión de libros y autores construida como parte de una **prueba técnica**, utilizando tecnologías modernas como **Next.js**, **TypeScript**, y **ShadCN UI**.
+
+Permite visualizar, crear, editar y eliminar autores y libros, así como exportar los datos a archivos Excel. Cuenta con autenticación básica mediante cookies y una estructura clara y escalable en el frontend.
+
+---
+
+### 🚀 Tecnologías utilizadas
+
+* **Next.js 14** con `app/` directory (App Router)
+* **TypeScript**
+* **ShadCN UI**: librería de componentes basada en Radix UI y TailwindCSS
+* **Tailwind CSS**: estilos utilitarios
+* **Server Actions & Fetching** (`server-only`, `use client`)
+* **Next.js Authentication** con cookies (sin external provider)
+
+---
+
+### 📄 Funcionalidades principales
+
+* ✅ Listado de autores y libros
+* ➕ Agregar y editar autores/libros usando `Dialog` de ShadCN UI
+* 🗑 Eliminar registros con confirmación
+* ⬇ Exportar datos a Excel desde endpoints
+* 🔐 Autenticación simple vía cookie de sesión (`/login`)
+* 💡 Manejo de estado con hooks personalizados (ej: `useAuthors`, `useBooks`)
+
+---
+
+### 📦 Dependencias clave
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+"next": "14.x",
+"react": "18.x",
+"typescript": "^5.x",
+"tailwindcss": "^3.x",
+"@shadcn/ui": "^0.3.x",
+"clsx": "^1.x",
+"tailwind-merge": "^2.x"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 📂 Endpoints esperados por la API externa
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* `GET    /authors`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* `POST   /authors`
 
-## Learn More
+* `PATCH  /authors/:id`
 
-To learn more about Next.js, take a look at the following resources:
+* `DELETE /authors/:id`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* `GET    /books`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* `POST   /books`
 
-## Deploy on Vercel
+* `PATCH  /books/:id`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* `DELETE /books/:id`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* `GET    /export/authors/excel`
+
+* `GET    /export/books/excel`
+
+* `GET    /export/combined/excel`
+
+---
+
+### ✅ Cómo correr el proyecto
+
+```bash
+# Instalar dependencias
+npm install
+
+# Iniciar servidor Next.js
+npm run dev
+```
+
+> Asegúrate de que la API esté corriendo también para que las llamadas funcionen.
+
+---
+
+### 💡 To Do / Mejoras Futuras
+
+* Validación de formularios con `zod` o `react-hook-form`
+* Paginación de autores y libros
+* Búsqueda y filtros
+* Login más robusto con JWT y roles
+
+---
